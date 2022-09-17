@@ -60,3 +60,23 @@
     background-color: #cecece;
     color: #ffffff;
   }
+
+
+  .footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px;
+  }
+
+  #newPost {
+    font-size: inherit;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color:#ffffff;
+    padding: 25px;
+    border-radius: 25px;
+  }
