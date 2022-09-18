@@ -1,25 +1,23 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Comment } = require('../../models');
+const withAuth = require("../../utils/auth");
 
-router.post('/', async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      });
-  
-    req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.username = newUser.username;
-      req.session.logged_in = true;
-      
-      res.json({ user: newUser, message: 'You are now signed up!' });
-    });
-  } catch (err) {
-    res.status(400).json(err);
+    const newComment = Comment.create(
+      { 
+        ...req.body, 
+        user_id: req.session.user_id 
+      })
+
+    res.json({ user: newComment, message: 'Your comment has been published successfully.'});
+
+  } catch(err)  {
+    res.status(500).json(err);
   }
 });
+
+module.exports = router;
 
 
 

@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       });
-  
+  console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.username = newUser.username;

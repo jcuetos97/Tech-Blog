@@ -7,6 +7,7 @@ router.post('/new', withAuth, async (req, res) => {
     const newPost = await Post.create({
       title: req.body.title,
       body: req.body.body,
+      user_id: req.session.user_id
       });
       
       res.json({ user: newPost, message: 'You are now signed up!' });
