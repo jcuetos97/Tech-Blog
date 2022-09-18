@@ -1,29 +1,27 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
-    const email = document.querySelector('#email-signup');
-    const username = document.querySelector('#username-signup');
-    const password = document.querySelector('#password-signup');
-  
+    const title = document.querySelector('#title-newPost');
+    const content = document.querySelector('#content-newPost');
+    
     if (email && password && username) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify ({    
-            email: email.value,
-            username: username.value, 
-            password: password.value 
+            title: title.value,
+            body: content.value, 
         }),
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
         document.location.replace("/dashboard");
       } else {
-        alert('Failed to log in');
+        alert('Failed to publish post.');
       }
     }
   };
   
   document
-    .querySelector('.signup-form')
+    .querySelector('.newPost-form')
     .addEventListener('submit', loginFormHandler);
   
