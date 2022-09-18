@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 router.post('/new', async (req, res) => {
   try {
@@ -8,8 +8,8 @@ router.post('/new', async (req, res) => {
       body: req.body.body,
       });
       
-      res.json({ user: newUser, message: 'You are now signed up!' });
-    });
+      res.json({ user: newPost, message: 'You are now signed up!' });
+    
   } catch (err) {
     res.status(400).json(err);
   }
@@ -17,4 +17,4 @@ router.post('/new', async (req, res) => {
 
 
 
-module.exports = router;
+module.exports = router; 

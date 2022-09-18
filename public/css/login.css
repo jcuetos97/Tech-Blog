@@ -96,3 +96,19 @@
 #newPost:hover {
   transform: scale(1.1);
 }
+
+
+.posts-container {
+  position: relative;
+  width: 50%;
+}
+
+.post-card {
+    position: relative;
+    width: 100%;
+    background-color: rgba(55, 54, 68, 0.10);
+    border-radius: 1.5rem;
+    padding:1.5rem;
+    margin: 1.5rem;
+}
+
