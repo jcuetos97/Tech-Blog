@@ -20,6 +20,34 @@ router.get('/', withAuth, async (req,res) => {
     } 
 });
 
+router.get("/post/:id", async (req, res) => {
+    try {
+        const onePost  = await Post.findByPk(req.params.id, {
+            include: [
+              User,
+              {
+                model: Comment,
+                include: [User],
+              },
+            ],
+          })
+
+        const post = onePost.get({ plain: true });
+        res.render("single-post", { post }); 
+    } catch (err) {
+        res.status(500).json(err);
+    } 
+});
+    
+router.get("/login", (req, res) => {
+if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+}
+
+res.render("login");
+});
+  
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');

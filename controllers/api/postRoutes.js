@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const { Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/new', async (req, res) => {
+router.post('/new', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       title: req.body.title,
@@ -15,6 +16,34 @@ router.post('/new', async (req, res) => {
   }
 });
 
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    Post.update(req.body,{
+      where: {
+        id: req.params.id
+      }
+    });
 
+    res.status(200).end();
+     
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    res.status(200).end();
+     
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+  
 module.exports = router; 
