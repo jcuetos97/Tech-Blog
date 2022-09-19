@@ -4,7 +4,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/');
-const helpers = require('./controllers/');
 
 // Setting up PORT and app
 const app = express();
@@ -27,7 +26,13 @@ const sess = {
 app.use(session(sess));
 
 // Handlebars 
-const hbs = exphbs.create({ helpers});
+const hbs = exphbs.create({ helpers: {
+  postDate: date => {
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  }
+}
+  
+ });
 
 // Default engine and extension provided
 app.engine('handlebars', hbs.engine);

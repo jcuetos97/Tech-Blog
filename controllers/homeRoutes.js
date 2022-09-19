@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req,res) => {
     } 
 });
 
-router.get("/post/:id", async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     try {
         const onePost  = await Post.findByPk(req.params.id, {
             include: [
@@ -33,7 +33,10 @@ router.get("/post/:id", async (req, res) => {
           })
 
         const post = onePost.get({ plain: true });
-        res.render("single-post", { post }); 
+        res.render('singlePost', { 
+            layout: 'dashboard',
+            post 
+        }); 
     } catch (err) {
         res.status(500).json(err);
     } 

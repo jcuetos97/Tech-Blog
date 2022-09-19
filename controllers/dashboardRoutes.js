@@ -7,8 +7,8 @@ router.get('/', withAuth, async (req,res) => {
     try {
         const allPost = await Post.findAll({
             where: { 
-                user_id: req.session.id 
-            },
+                user_id: req.session.user_id 
+            }, 
         });
   
         const userPosts = allPost.map((post) => post.get({ plain: true }));
@@ -28,6 +28,21 @@ router.get("/new", withAuth, (req, res) => {
       layout: "dashboard"
     });
 });
-  
+
+router.get("/edit/:id", withAuth, async (req, res) => {
+    try {
+
+       const postData  =  await Post.findByPk(req.params.id);
+      
+       const post = postData.get({ plain: true });
+       res.render("editPost", {
+        layout: "dashboard",
+        post
+        });
+    } catch (err) {
+        console.log(err);
+        res.redirect("login");
+    } 
+  });
 
 module.exports = router;

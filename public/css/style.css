@@ -170,9 +170,25 @@ button {
 
     
 
-
-
+/* User Dashboard */
+.user-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    max-width: 765px;
+}
     
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(55, 54, 68, 0.60);
+    color: #fff;
+    padding: 25px;
+    margin: 15px;
+    border-radius: 3rem;
+}
 
 .header__main-ham-menu-cont {
     display: none;
