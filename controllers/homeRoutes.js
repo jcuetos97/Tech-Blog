@@ -33,6 +33,7 @@ router.get('/post/:id', async (req, res) => {
           })
 
         const post = onePost.get({ plain: true });
+        console.log (onePost);
         res.render('singlePost', { 
             layout: 'dashboard',
             post 
