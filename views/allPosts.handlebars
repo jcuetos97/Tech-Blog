@@ -2,15 +2,18 @@
   {{#each allPosts}}
   <div class="post-card">
     <div>
-      <h2> 
-        <a href="/post/{{id}}">{{title}}</a> 
-      </h2>
-    <div>
-       <p>Posted by {{user.username}} on {{postDate createdAt}}</p>
-    </div>
-    </div>
-    <div class="card-body">
-      {{body}}
+      <div class="card-header">
+        <h2> 
+          <a href="/post/{{id}}">{{title}}</a> 
+        </h2>
+        <div class="card-data">
+          <p>Posted by {{user.username}} on {{postDate createdAt}}</p>
+        </div>
+      </div>
+    
+      <div class="card-body">
+        {{body}}
+      </div>
     </div>
   </div>
   {{/each}}

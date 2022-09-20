@@ -1,16 +1,16 @@
-<form class="form newPost-form">
-    <div class="heading">
-        <p class="postTitle">Create New Post</p>
+<div class="post-card">
+    <div class="card-header">
+        <h2>New Post</h2>
     </div>
-    <div class="form-sec">
+    <form class="card-body newPost-form">   
         <label for="title-newPost">Title.</label>
         <input class="form-input" type="text" id="title-newPost"/>
-    </div>
-    <div class="form-sec">
+
         <label for="content-newPost">Content.</label>
-        <textarea name="content"  class="form-input" placeholder="Write here..." id="content-newPost" cols="0" rows="6"></textarea>
-    </div>
-    <div class="form-sec">
+        <textarea name="content"  class="form-input" placeholder="Write post content here..." id="content-newPost" cols="0" rows="6"></textarea>
+    
         <button class="btn sign-up-btn" id="publish" type="submit">Publish</button>
-    </div>
-</form>
+    </form>
+ </div>
+
+<script src="/js/newPost.js"></script>

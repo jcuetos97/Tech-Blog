@@ -1,29 +1,30 @@
 <div class="posts-container">
-  <article class="post-card">
-    <div>
+  <div class="post-card">
+    <div class="card-header">
       <h2>{{post.title}}</h2>
-      <div>
+      <div class="card-data">
         Posted by {{post.user.username}} on {{postDate post.createdAt}}
       </div>
     </div>
-    <div>
+    <div class="card-body">
       {{post.body}}
     </div>
-  </article>
+  </div>
 
   {{#if post.comments}}
     <section class="post-card">
-      <div>
+
+      <div class="card-header">
         <h3>Comments</h3>
       </div>
 
-      <div>
+      <div >
         {{#each post.comments}}
-          <div>
+          <div class="card-body">
             <p>
               {{body}}
             </p>
-            <p>
+            <p class="card-data">
               &mdash; {{user.username}}, {{postDate createdAt}}
             </p>
           </div>
@@ -33,7 +34,7 @@
   {{/if}}
 
   <form id="new-comment-form" class="post-card">
-    <div>
+    <div class="card-header">
       <h3>Add New Comment</h3>
     </div>
 
