@@ -10,6 +10,8 @@ This is applicatin is a CMS-style blog site where developers can publish their b
  
 ![Demo](./public/css/images/SS%20DEMO.png)
 
+Deployed with Heroku. [Link](https://tech-blog-jcuetos97.herokuapp.com/welcome)
+
 ## Table of Contents
 * [Description](#description)
 * [License](#license)
