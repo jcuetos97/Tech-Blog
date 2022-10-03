@@ -59,9 +59,17 @@ textarea {
 .header__link {
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color .3s; }
+    transition: color .3s;
+    margin-right: 2rem; }
     .header__link:hover {
     color: #0062b9; }
+
+.header__link-login {
+    position: absolute;
+    right: 1rem; 
+    top: 17px;
+}
+
 
 /* Mobile Navbar */ 
 .header__main-ham-menu-cont {

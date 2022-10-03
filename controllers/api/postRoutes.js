@@ -10,7 +10,7 @@ router.post('/new', withAuth, async (req, res) => {
       user_id: req.session.user_id
       });
       
-      res.json({ user: newPost, message: 'You are now signed up!' });
+      res.json({ message: 'Your post has been published successfully!' });
     
   } catch (err) {
     res.status(400).json(err);
